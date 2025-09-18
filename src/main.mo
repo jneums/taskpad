@@ -15,7 +15,7 @@ import Json "mo:json";
 import AuthCleanup "mo:mcp-motoko-sdk/auth/Cleanup";
 import AuthState "mo:mcp-motoko-sdk/auth/State";
 import AuthTypes "mo:mcp-motoko-sdk/auth/Types";
-
+import HttpAssets "mo:mcp-motoko-sdk/mcp/HttpAssets";
 import Mcp "mo:mcp-motoko-sdk/mcp/Mcp";
 import McpTypes "mo:mcp-motoko-sdk/mcp/Types";
 import HttpHandler "mo:mcp-motoko-sdk/mcp/HttpHandler";
@@ -37,6 +37,10 @@ shared ({ caller = deployer }) persistent actor class McpServer(
 
   // The canister owner, who can manage treasury funds.
   var owner : Principal = Option.get(do ? { args!.owner! }, deployer);
+
+  // State for certified HTTP assets (like /.well-known/...)
+  var stable_http_assets : HttpAssets.StableEntries = [];
+  transient let http_assets = HttpAssets.init(stable_http_assets);
 
   // =================================================================================
   // --- TASKPAD STATE ---
@@ -325,7 +329,7 @@ shared ({ caller = deployer }) persistent actor class McpServer(
     serverInfo = {
       name = "io.github.jneums.taskpad";
       title = "TaskPad On-Chain To-Do List";
-      version = "0.1.0";
+      version = "0.1.1";
     };
     resources = []; // No static resources for this app
     resourceReader = func(_) { null };
@@ -364,7 +368,7 @@ shared ({ caller = deployer }) persistent actor class McpServer(
       mcp_server = mcpServer;
       streaming_callback = http_request_streaming_callback;
       auth = authContext;
-      http_asset_cache = null;
+      http_asset_cache = ?http_assets.cache;
       mcp_path = ?"/mcp";
     };
   };

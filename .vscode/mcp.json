@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "TaskPad": {
+      "type": "http",
+      "url": "https://kvszb-7aaaa-aaaai-q33ya-cai.icp0.io/mcp"
+    }
+  }
+}
