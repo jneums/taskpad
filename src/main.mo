@@ -329,7 +329,7 @@ shared ({ caller = deployer }) persistent actor class McpServer(
     serverInfo = {
       name = "io.github.jneums.taskpad";
       title = "TaskPad On-Chain To-Do List";
-      version = "0.1.1";
+      version = "0.1.2";
     };
     resources = []; // No static resources for this app
     resourceReader = func(_) { null };
