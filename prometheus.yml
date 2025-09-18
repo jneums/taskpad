@@ -36,14 +36,14 @@ submission:
 
   # --- Visuals (Replace with your actual asset URLs) ---
   visuals:
-    icon_url: 'https://placehold.co/512x512/1A1A1A/FFFFFF/png?text=TP'
-    banner_url: 'https://placehold.co/1200x630/1A1A1A/FFFFFF/png?text=TaskPad'
-    gallery_images: []
+    icon_url: https://github.com/jneums/taskpad/releases/download/v0.1.0-assets/icon-taskpad.png
+    banner_url: https://github.com/jneums/taskpad/releases/download/v0.1.0-assets/banner-taskpad.png
+    gallery_images: [https://github.com/jneums/taskpad/releases/download/v0.1.0-assets/banner-taskpad.png]
 
   # --- BUILD-SPECIFIC - YOU MUST FILL THESE OUT BEFORE PUBLISHING ---
   # The full commit hash of the version you are publishing.
   # Run `git rev-parse HEAD` to get this value.
-  git_commit: ''
+  git_commit: f6298a588547475792f13d364efa99f2c3633e5c
 
   # The path to the compiled WASM file for this canister.
   # This is typically found in `.dfx/local/canisters/<canister_name>/<canister_name>.wasm`
