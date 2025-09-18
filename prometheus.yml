@@ -1,0 +1,50 @@
+# Prometheus Application Manifest
+# This is the permanent, unique identifier for your application.
+namespace: io.github.jneums.taskpad
+
+# This section contains all data for a specific version. This entire package will be submitted for review and locked to the audit of this version.
+submission:
+  # --- Core App Information ---
+  name: TaskPad
+  description: A simple, secure, and permanent to-do list that lives forever on the blockchain. Built on the Internet Computer, TaskPad ensures your tasks are always available, censorship-resistant, and can never be lost or altered by a central company.
+  publisher: Atlas Labs
+  category: Productivity
+
+  # --- Technical & Marketing Details ---
+  repo_url: https://github.com/jneums/taskpad
+  mcp_path: /mcp
+  why_this_app: Your to-do list should be yours, forever. Most productivity apps are run by companies that can shut down, lose your data, or change their service. TaskPad is different. It runs 100% on the Internet Computer blockchain, making it a permanent, unstoppable public utility. Your task list is stored securely on-chain, always available, and can never be taken away from you. It's the last to-do list you'll ever need.
+  key_features:
+    - "Truly Permanent: Your tasks are stored on the blockchain and can never be lost or deleted by a third party."
+    - "Always Available: Runs on a decentralized network, immune to company shutdowns or server outages."
+    - "Simple & Fast: A clean, intuitive interface for managing your daily tasks without the clutter."
+    - "Verifiably Secure: Because it's on-chain, your data is private and can't be tampered with."
+    - "Agent-Ready API: A simple MCP interface for programmatic task management by AI agents or other smart contracts."
+  tags:
+    - todo
+    - task-manager
+    - productivity
+    - checklist
+    - organizer
+    - utilities
+    - on-chain
+    - web3
+    - decentralized
+    - permanent-storage
+    - verifiable
+    - ai-agent
+
+  # --- Visuals (Replace with your actual asset URLs) ---
+  visuals:
+    icon_url: 'https://placehold.co/512x512/1A1A1A/FFFFFF/png?text=TP'
+    banner_url: 'https://placehold.co/1200x630/1A1A1A/FFFFFF/png?text=TaskPad'
+    gallery_images: []
+
+  # --- BUILD-SPECIFIC - YOU MUST FILL THESE OUT BEFORE PUBLISHING ---
+  # The full commit hash of the version you are publishing.
+  # Run `git rev-parse HEAD` to get this value.
+  git_commit: ''
+
+  # The path to the compiled WASM file for this canister.
+  # This is typically found in `.dfx/local/canisters/<canister_name>/<canister_name>.wasm`
+  wasm_path: .dfx/local/canisters/my_mcp_server/my_mcp_server.wasm
