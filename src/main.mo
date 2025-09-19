@@ -122,7 +122,7 @@ shared ({ caller = deployer }) persistent actor class McpServer(
     {
       name = "add_task";
       title = ?"Add Task";
-      description = ?"Creates a new to-do item.";
+      description = ?"Creates a single new to-do item.";
       inputSchema = Json.obj([
         ("type", Json.str("object")),
         ("properties", Json.obj([("description", Json.obj([("type", Json.str("string")), ("description", Json.str("The content of the task."))]))])),
@@ -138,12 +138,13 @@ shared ({ caller = deployer }) persistent actor class McpServer(
       name = "list_tasks";
       title = ?"List Tasks";
       description = ?"Retrieves all of your to-do items.";
-      inputSchema = Json.obj([("type", Json.str("object"))]);
+      inputSchema = Json.obj([
+        ("type", Json.str("object")),
+        ("properties", Json.obj([])),
+      ]);
       outputSchema = ?Json.obj([
         ("type", Json.str("object")), // The top-level type is now "object"
-        ("properties", Json.obj([("tasks", Json.obj([/* We've added a "tasks" property */
-        ("type", Json.str("array")), /* which contains our original array schema. */
-        ("items", Json.obj([("type", Json.str("object")), ("properties", Json.obj([("id", Json.obj([("type", Json.str("number"))])), ("description", Json.obj([("type", Json.str("string"))])), ("completed", Json.obj([("type", Json.str("boolean"))]))]))]))]))])),
+        ("properties", Json.obj([("tasks", Json.obj([("type", Json.str("array")), ("items", Json.obj([("type", Json.str("object")), ("properties", Json.obj([("id", Json.obj([("type", Json.str("number"))])), ("description", Json.obj([("type", Json.str("string"))])), ("completed", Json.obj([("type", Json.str("boolean"))]))]))]))]))])),
       ]);
       payment = null;
     },
@@ -329,7 +330,7 @@ shared ({ caller = deployer }) persistent actor class McpServer(
     serverInfo = {
       name = "io.github.jneums.taskpad";
       title = "TaskPad On-Chain To-Do List";
-      version = "0.1.3";
+      version = "0.1.4";
     };
     resources = []; // No static resources for this app
     resourceReader = func(_) { null };
