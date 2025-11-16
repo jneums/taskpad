@@ -8,7 +8,7 @@ submission:
   name: TaskPad
   description: A simple, secure, and permanent to-do list that lives forever on the blockchain. Built on the Internet Computer, TaskPad ensures your tasks are always available, censorship-resistant, and can never be lost or altered by a central company.
   publisher: Atlas Labs
-  category: Productivity
+  category: Utilities
 
   # --- Technical & Marketing Details ---
   repo_url: https://github.com/jneums/taskpad
